@@ -1,10 +1,10 @@
-class CoordinateSet
+export default class CoordinateSet
 {
 	constructor(x, y, z, timeStamp)
 	{
-		this._x = x;
-		this._y = y;
-		this._z = z;
-		this._timeStamp = timeStamp;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		this.timeStamp = timeStamp;
 	}
 }

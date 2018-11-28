@@ -3,6 +3,28 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Main Test</title>
+		<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-storage.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+			apiKey: "AIzaSyABO8DLyX8d18VaP9f0IIbZGeGYe2D4g4k",
+			authDomain: "accelerometerreader-f868a.firebaseapp.com",
+			databaseURL: "https://accelerometerreader-f868a.firebaseio.com",
+			projectId: "accelerometerreader-f868a",
+			storageBucket: "accelerometerreader-f868a.appspot.com"//,
+			//messagingSenderId: "113126356925"
+		  };
+		  firebase.initializeApp(config);
+		  
+		  //get instance of firestore (cloud database)
+		  var db = firebase.firestore();
+		  //disable depreciated features
+		  db.settings({timestampsInSnapshots: true});
+		  
+		</script>
 	</head>
 	<body>
 		<script type="module" src="JS/CoordinateSet.js"></script>

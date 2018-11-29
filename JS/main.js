@@ -1,4 +1,5 @@
 import CoordinateSet from "./CoordinateSet.js";
+import Activity from "./Activity.js";
 
 let coordinateSets = [];
 for(let i = 0; i < 100; i++)
@@ -6,13 +7,16 @@ for(let i = 0; i < 100; i++)
 	coordinateSets.push(new CoordinateSet(Math.random() * 1000.0, Math.random() * 1000.0, Math.random() * 1000.0, 
 		Date.now()));
 }
+
+coordinateSets.forEach(c => console.log(c));
+
 //console.log(coord);
-const coordDBRef = db.collection("CoordinateSets");
+/* const coordDBRef = db.collection("CoordinateSets");
 
 //query database
 coordDBRef.get()
 	.then(querySnapshot => querySnapshot.forEach(doc => console.log(doc.id, " => ", doc.data())))
-	.catch(error => console.error("Error getting data: " , error));
+	.catch(error => console.error("Error getting data: " , error)); */
 
 //batch upload
 /*

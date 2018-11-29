@@ -1,4 +1,4 @@
-class Activity
+export default class Activity
 {
 	constructor(isMoving, startTime, endTime)
 	{

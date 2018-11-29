@@ -1,14 +1,22 @@
 import CoordinateSet from "./CoordinateSet.js";
 import Activity from "./Activity.js";
 
-let coordinateSets = [];
+/* let coordinateSets = [];
 for(let i = 0; i < 100; i++)
 {
 	coordinateSets.push(new CoordinateSet(Math.random() * 1000.0, Math.random() * 1000.0, Math.random() * 1000.0, 
 		Date.now()));
 }
 
-coordinateSets.forEach(c => console.log(c));
+coordinateSets.forEach(c => console.log(c)); */
+
+let activities = [];
+for(let i = 0; i < 25; i++)
+{
+	activities.push(new Activity(Boolean(Math.round(Math.random())), Date.now(), Date.now());
+}
+
+console.log(activities);
 
 //console.log(coord);
 /* const coordDBRef = db.collection("CoordinateSets");

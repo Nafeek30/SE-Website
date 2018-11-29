@@ -13,7 +13,7 @@ coordinateSets.forEach(c => console.log(c)); */
 let activities = [];
 for(let i = 0; i < 25; i++)
 {
-	activities.push(new Activity(Boolean(Math.round(Math.random())), Date.now(), Date.now());
+	activities.push(new Activity(Boolean(Math.round(Math.random()))), Date.now(), Date.now());
 }
 
 console.log(activities);

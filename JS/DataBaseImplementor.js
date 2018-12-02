@@ -1,4 +1,4 @@
-class DataBaseImplementor
+export default class DataBaseImplementor
 {
 	getData()
 	{

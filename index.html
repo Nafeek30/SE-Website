@@ -19,15 +19,14 @@
 		  };
 		  firebase.initializeApp(config);
 		  
-		  //get instance of firestore (cloud database)
+		  //get instance of firestore
 		  var db = firebase.firestore();
+
 		  //disable depreciated features
-		  db.settings({timestampsInSnapshots: true});
-		  
+		  db.settings({timestampsInSnapshots: true});		  
 		</script>
 	</head>
 	<body>
-		<script type="module" src="JS/CoordinateSet.js"></script>
 		<script type="module" src="JS/main.js"></script>
 	</body>
 </html>

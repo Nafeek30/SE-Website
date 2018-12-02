@@ -1,4 +1,7 @@
-class CoordinateSetDataBase extends DataBase
+import DataBase from "./DataBase.js";
+import CoordinateSet from "./CoordinateSet.js";
+
+export default class CoordinateSetDataBase extends DataBase
 {
 	getData()
 	{

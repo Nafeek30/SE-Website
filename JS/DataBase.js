@@ -1,4 +1,6 @@
-class DataBase
+import DataBaseImplementor from "./DataBaseImplementor.js";
+
+export default class DataBase
 {
 	constructor(implementor)
 	{

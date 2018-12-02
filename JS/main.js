@@ -1,14 +1,20 @@
 import CoordinateSet from "./CoordinateSet.js";
 import Activity from "./Activity.js";
+import CoordinateSetDataBase from "./CoordinateSetDataBase.js";
+import FirebaseImplementor from "./FirebaseImplementor.js";
 
-/* let coordinateSets = [];
+const impl = new FirebaseImplementor();
+const coordDb = new CoordinateSetDataBase(impl);
+console.log(coordDb);
+
+let coordinateSets = [];
 for(let i = 0; i < 100; i++)
 {
 	coordinateSets.push(new CoordinateSet(Math.random() * 1000.0, Math.random() * 1000.0, Math.random() * 1000.0, 
 		Date.now()));
 }
 
-coordinateSets.forEach(c => console.log(c)); */
+coordDb.uploadData(coordinateSets);
 
 let activities = [];
 for(let i = 0; i < 25; i++)

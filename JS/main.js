@@ -14,7 +14,11 @@ for(let i = 0; i < 100; i++)
 		Date.now()));
 }
 
-coordDb.uploadData(coordinateSets);
+//coordDb.uploadData(coordinateSets);
+coordDb.getData();
+
+
+
 
 let activities = [];
 for(let i = 0; i < 25; i++)
@@ -22,7 +26,7 @@ for(let i = 0; i < 25; i++)
 	activities.push(new Activity(Boolean(Math.round(Math.random())), Date.now(), Date.now()));
 }
 
-console.log(activities);
+//console.log(activities);
 
 //console.log(coord);
 /* const coordDBRef = db.collection("CoordinateSets");

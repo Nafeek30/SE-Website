@@ -1,4 +1,6 @@
-class CoordinateSetAnalyzer
+import CoordinateSet from "./CoordinateSet.js";
+
+export default class CoordinateSetAnalyzer
 {
 	analyzeData(coordinateSets)
 	{

@@ -1,4 +1,4 @@
-class ActivityTable
+export default class ActivityTable
 {
 	constructor(activities)
 	{

@@ -1,4 +1,6 @@
-class DataAnalyzer
+import DataAnalyzerImplementor from "./DataAnalyzerImplementor.js";
+
+export default class DataAnalyzer
 {
 	constructor(implementor)
 	{

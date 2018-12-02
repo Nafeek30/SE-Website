@@ -1,4 +1,4 @@
-class DataAnalyzerImplementor
+export default class DataAnalyzerImplementor
 {
 	analyzeData(coordinateSets)
 	{

@@ -1,11 +1,11 @@
 import DataBaseImplementor from "./DataBaseImplementor.js";
+import CoordinateSet from "./CoordinateSet.js";
 
 export default class FirebaseImplementor extends DataBaseImplementor
 {
 	getData()
 	{
-		db.collection("CoordinateSets").get()
-			.then(querySnapshot => querySnapshot.forEach(doc => console.log(doc.id, " => ", doc.data())))
+		return db.collection("CoordinateSets").get()
 			.catch(error => console.error("Error querying database: ", error));
 	}
 

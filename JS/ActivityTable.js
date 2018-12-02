@@ -3,8 +3,12 @@ export default class ActivityTable
 	constructor(activities)
 	{
 		this._activities = activities;
-		//this._totalActiveDuration = something
-		//this._totalStationaryDuration = something
+		this._totalActiveDuration += activities.forEach(activity => {
+			if(activity.isMoving) return activity.endTime - activity.startTime
+		});
+		this._totalStationaryDuration += activities.forEach(activity => {
+            if(!activity.isMoving) return activity.endTime - activity.startTime
+        }); 
 	}
 	
 	get activities()
@@ -12,7 +16,7 @@ export default class ActivityTable
 		throw "activities is a private field.";
 	}
 	
-	set activities()
+	set activities(activities)
 	{
 		throw "activities is a private field.";
 	}
@@ -22,7 +26,7 @@ export default class ActivityTable
 		throw "totalActiveDuration is a private field.";
 	}
 	
-	set totalActiveDuration()
+	set totalActiveDuration(duration)
 	{
 		throw "totalActiveDuration is a private field.";
 	}
@@ -32,7 +36,7 @@ export default class ActivityTable
 		throw "totalStationaryDuration is a private field.";
 	}
 	
-	set totalStationaryDuration()
+	set totalStationaryDuration(duration)
 	{
 		throw "totalStationaryDuration is a private field.";
 	}

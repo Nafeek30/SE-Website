@@ -19,26 +19,26 @@ const coordAnalyzer = new CoordinateSetAnalyzer(analyzerImpl);
 let coordinateSets = [];
 for(let i = 0; i < 100; i++)
 {
-	coordinateSets.push(new CoordinateSet(Math.random() * 1000.0, Math.random() * 1000.0, Math.random() * 1000.0, 
+	coordinateSets.push(new CoordinateSet(Math.random() * 1000.0, Math.random() * 1000.0, Math.random() * 1000.0,
 		Date.now()));
 }
 */
 
 //coordDb.uploadData(coordinateSets);
-let testData = coordDb.getData();
+// let testData = coordDb.getData();
 let coordinateSets = [];
 let activityTable = null;
 
-testData.then(querySnapshot => {
-	querySnapshot.forEach(doc => { 
-		let obj = doc.data();
-		coordinateSets.push(new CoordinateSet(obj.x, obj.y, obj.z, obj.timestamp));
-	});
-
-	//Analyze the data
-	activityTable = coordAnalyzer.analyzeData(coordinateSets);
-	console.log(activityTable);
-});
+// testData.then(querySnapshot => {
+// 	querySnapshot.forEach(doc => {
+// 		let obj = doc.data();
+// 		coordinateSets.push(new CoordinateSet(obj.x, obj.y, obj.z, obj.timestamp));
+// 	});
+//
+// 	//Analyze the data
+// 	activityTable = coordAnalyzer.analyzeData(coordinateSets);
+// 	console.log(activityTable);
+// });
 
 //console.log(coordinateSets);
 
@@ -46,4 +46,19 @@ testData.then(querySnapshot => {
 //let activityTable = coordAnalyzer.analyzeData(coordinateSets);
 //console.log(activityTable);
 
+document.getElementById('input').addEventListener('change', () => {
+	let file = event.target.files;
+	console.log(file);
+	handleFiles(file);
+});
 
+function handleFiles(theFiles) {
+  let file = theFiles[0];
+  console.log(file.name);
+  Papa.parse(file, { header: true,
+      dynamicTyping: true,
+      complete: function(results) {
+        console.log('parsing complete read', results, 'records.');
+      }
+    });
+}

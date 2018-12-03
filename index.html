@@ -18,15 +18,17 @@
 			//messagingSenderId: "113126356925"
 		  };
 		  firebase.initializeApp(config);
-		  
+
 		  //get instance of firestore
 		  var db = firebase.firestore();
 
 		  //disable depreciated features
-		  db.settings({timestampsInSnapshots: true});		  
+		  db.settings({timestampsInSnapshots: true});
 		</script>
 	</head>
 	<body>
+		<input type="file" id="input" accept=".csv" name="myfile" />
+		<script src="https://fastcdn.org/Papa-Parse/4.1.2/papaparse.min.js"></script>
 		<script type="module" src="JS/main.js"></script>
 	</body>
 </html>

@@ -1,3 +1,5 @@
+import DataBaseImplementor from "./DataBaseImplementor.js";
+
 class TestDataBaseImplementor extends DataBaseImplementor
 {
 	getData()

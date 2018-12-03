@@ -1,6 +1,7 @@
+import DataAnalyzer from "./DataAnalyzer.js";
 import CoordinateSet from "./CoordinateSet.js";
 
-export default class CoordinateSetAnalyzer
+export default class CoordinateSetAnalyzer extends DataAnalyzer
 {
 	analyzeData(coordinateSets)
 	{

@@ -27,12 +27,23 @@ for(let i = 0; i < 100; i++)
 //coordDb.uploadData(coordinateSets);
 let testData = coordDb.getData();
 let coordinateSets = [];
-testData.then(querySnapshot => querySnapshot.forEach(doc => console.log(doc)));
-console.log("\n\n");
-console.log(testData);
+let activityTable = null;
+
+testData.then(querySnapshot => {
+	querySnapshot.forEach(doc => { 
+		let obj = doc.data();
+		coordinateSets.push(new CoordinateSet(obj.x, obj.y, obj.z, obj.timestamp));
+	});
+
+	//Analyze the data
+	activityTable = coordAnalyzer.analyzeData(coordinateSets);
+	console.log(activityTable);
+});
+
+//console.log(coordinateSets);
 
 //Analyze the test data
-//let activityTable = coordAnalyzer.analyzeData(testData);
+//let activityTable = coordAnalyzer.analyzeData(coordinateSets);
 //console.log(activityTable);
 
 

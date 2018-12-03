@@ -9,6 +9,7 @@ export default class FirebaseImplementor extends DataBaseImplementor
 			.catch(error => console.error("Error querying database: ", error));
 	}
 
+	//may need to fix batch
 	uploadData(coordinateSets)
 	{
 		const batch = db.batch();
@@ -16,7 +17,7 @@ export default class FirebaseImplementor extends DataBaseImplementor
 			x: coord.x,
 			y: coord.y,
 			z: coord.z,
-			timeStamp: coord.timeStamp
+			timestamp: coord.timestamp
 		}));
 		batch.commit()
 			.then(() => console.log("Upload Successful!"))

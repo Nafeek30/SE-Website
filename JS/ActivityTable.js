@@ -3,11 +3,13 @@ export default class ActivityTable
 	constructor(activities)
 	{
 		this._activities = activities;
-		this._totalActiveDuration += activities.forEach(activity => {
-			if(activity.isMoving) return activity.endTime - activity.startTime
-		});
-		this._totalStationaryDuration += activities.forEach(activity => {
-            if(!activity.isMoving) return activity.endTime - activity.startTime
+		//this._totalActiveDuration += 
+		/* activities.forEach(activity => {
+			console.log(activity);
+		}); */
+		//this._totalStationaryDuration += 
+		activities.forEach(activity => {
+            if(activity.isMoving) console.log(activity);
         }); 
 	}
 	

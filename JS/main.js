@@ -65,7 +65,9 @@ function handleFiles(theFiles) {
 				coordinateSets.push(new CoordinateSet(line[keys[0]], line[keys[1]], line[keys[2]], line[keys[3]]));
 			}
 		);
-		console.log(coordinateSets);
+		//console.log(coordinateSets);
+		activityTable = coordAnalyzer.analyzeData(coordinateSets);
+		console.log(activityTable);
       }
     });
 }

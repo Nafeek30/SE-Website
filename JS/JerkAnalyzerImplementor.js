@@ -21,9 +21,13 @@ export default class JerkAnalyzerImplementor extends DataAnalyzerImplementor
 
 			deltas.push({timestamp: coordinateSets[i].timestamp, isMoving: isMoving});
 		}
-		
 		//console.log(deltas);
 
+		/* for(let i = 0; i < deltas.length - 1; i++)
+		{
+			console.log(deltas[i + 1].timestamp - deltas[i].timestamp);
+		} */
+		
 		let activities = [];
 		let group = new Activity(deltas[0].isMoving, deltas[0].timestamp, 0);
 		for(let i = 1; i < deltas.length; i++)
@@ -35,6 +39,7 @@ export default class JerkAnalyzerImplementor extends DataAnalyzerImplementor
 				group.isMoving = deltas[i].isMoving;
 				group.startTime = deltas[i].timestamp;
 			}
+			//console.log(group);
 		}
 		
 		return new ActivityTable(activities);

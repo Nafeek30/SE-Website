@@ -58,7 +58,14 @@ function handleFiles(theFiles) {
   Papa.parse(file, { header: true,
       dynamicTyping: true,
       complete: function(results) {
-        console.log('parsing complete read', results, 'records.');
+        //console.log('parsing complete read', results, 'records.');
+		
+		results.data.forEach( line => {
+				let keys = Object.keys(line);
+				coordinateSets.push(new CoordinateSet(line[keys[0]], line[keys[1]], line[keys[2]], line[keys[3]]));
+			}
+		);
+		console.log(coordinateSets);
       }
     });
 }

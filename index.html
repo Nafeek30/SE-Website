@@ -38,28 +38,34 @@
 		<div class="columns">
 
 			<div class="column col-md-12 col-4">
-				<h1 class="mt-2">Wheel U B Active?</h1>
-				<!-- <p>
-					Analyze your wheelchair data here.
-				</p> -->
+				<h1 class="mt-2">Wheel 3000</h1>
 			</div>
 
 			<div class="column col-md-12 col-8">
 				<div class="card shadow-lg">
 					<div class="card-header">
-						<div class="card-title h5">Activity</div>
+						<div class="card-title h5">
+							Activity
+							<div class="form-group float-right">
+								<select class="form-select">
+									<option>Minutes</option>
+									<option>Hours</option>
+								</select>
+							</div>
+						</div>
 						<div class="card-subtitle text-gray">Wheelchair Edition</div>
 					</div>
 					<div class="card-body">
+
+						<!-- loading message -->
 						<div class="empty d-none" id="proxyChart">
 							<div class="loading loading-lg"></div>
-							<p class="empty-title h5">Loading Activity Data</p>
+							<p class="empty-title h5">Loading Activity...</p>
 							<p class="empty-subtitle">Click the button below or use the mobile app to upload data.</p>
 						</div>
 
-						<!-- <ul id="moveData"></ul> -->
-
 						<!-- can conditionally display or not by toggling `.display-none` -->
+						<!-- form select control -->
 						<canvas id="realChart" class="d-none" height="100px"></canvas>
 					</div>
 					<div class="card-footer">

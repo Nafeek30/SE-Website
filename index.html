@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Main Test</title>
-		<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-storage.js"></script>
-		<script>
-		  // Initialize Firebase
+
+<head>
+	<meta charset="utf-8">
+	<title>Main Test</title>
+	<!-- Spectre CSS -->
+	<link rel="stylesheet" href="src/css/main.css">
+	<link rel="stylesheet" href="src/css/spectre.css">
+	<link rel="stylesheet" href="src/css/spectre-exp.css">
+	<link rel="stylesheet" href="src/css/spectre-icons.css">
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-storage.js"></script>
+	<script>
+		// Initialize Firebase
 		  var config = {
 			apiKey: "AIzaSyABO8DLyX8d18VaP9f0IIbZGeGYe2D4g4k",
 			authDomain: "accelerometerreader-f868a.firebaseapp.com",
@@ -25,10 +31,45 @@
 		  //disable depreciated features
 		  db.settings({timestampsInSnapshots: true});
 		</script>
-	</head>
-	<body>
-		<input type="file" id="input" accept=".csv" name="myfile" />
-		<script src="https://fastcdn.org/Papa-Parse/4.1.2/papaparse.min.js"></script>
-		<script type="module" src="JS/main.js"></script>
-	</body>
+</head>
+
+<body>
+	<div class="container container--margin grid-lg">
+		<h1 class="mt-2">SE</h1>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		</p>
+		<div class="card">
+			<div class="card-header">
+				<div class="card-title h5">Wheelchair Movement</div>
+				<!-- <div class="card-subtitle text-gray">Graph provided by ChartJS</div> -->
+			</div>
+			<div class="card-body">
+				<div class="empty d-none" id="emptyChart">
+					<div class="empty-icon">
+						<i class="icon icon-4x icon-photo"></i>
+					</div>
+					<p class="empty-title h5">Activity Not Found</p>
+					<p class="empty-subtitle">Click the button below or use the app to upload your first set of data.</p>
+				</div>
+
+				<ul id="moveData"></ul>
+
+				<!-- can conditionally display or not by toggling `.display-none` -->
+				<canvas id="myChart" class=""></canvas>
+			</div>
+			<div class="card-footer">
+				<div class="upload-btn-wrapper">
+					<button class="btn">Upload Data</button>
+					<input type="file" id="input" accept=".csv" name="myfile" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+	<script src="https://fastcdn.org/Papa-Parse/4.1.2/papaparse.min.js" defer></script>
+	<script type="module" src="src/js/main.js"></script>
+</body>
+
 </html>

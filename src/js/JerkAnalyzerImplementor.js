@@ -35,9 +35,10 @@ export default class JerkAnalyzerImplementor extends DataAnalyzerImplementor
 			if(deltas[i].isMoving != group.isMoving)
 			{
 				group.endTime = deltas[i - 1].timestamp;
-				activities.push(group);
+				activities.push(new Activity(group.isMoving, group.startTime, group.endTime));
 				group.isMoving = deltas[i].isMoving;
 				group.startTime = deltas[i].timestamp;
+				group.endTime = 0;
 			}
 			//console.log(group);
 		}

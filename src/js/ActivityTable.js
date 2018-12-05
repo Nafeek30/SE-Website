@@ -8,9 +8,9 @@ export default class ActivityTable
 			console.log(activity);
 		}); */
 		//this._totalStationaryDuration +=
-		activities.forEach(activity => {
+		/* activities.forEach(activity => {
             if(activity.isMoving) console.log(activity);
-        });
+        }); */
 	}
 
 	get activities()

@@ -5,7 +5,7 @@ export default class CoordinateSetAnalyzer extends DataAnalyzer
 {
 	analyzeData(coordinateSets)
 	{
-		if(Array.isArray(coordinateSets) && coordinateSets.every(x => 
+		if(Array.isArray(coordinateSets) && coordinateSets.every(x =>
 			x instanceof CoordinateSet
 		))
 			return this._implementor.analyzeData(coordinateSets);

@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Main Test</title>
+	<title>Activity</title>
 	<!-- Spectre CSS -->
 	<link rel="stylesheet" href="src/css/main.css">
 	<link rel="stylesheet" href="src/css/spectre.css">
@@ -33,43 +33,53 @@
 		</script>
 </head>
 
-<body>
-	<div class="container container--margin grid-lg">
-		<h1 class="mt-2">SE</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		</p>
-		<div class="card">
-			<div class="card-header">
-				<div class="card-title h5">Wheelchair Movement</div>
-				<!-- <div class="card-subtitle text-gray">Graph provided by ChartJS</div> -->
+<body class="center-v--parent bg-gray">
+	<div class="container container--margin grid-lg center-v--child">
+		<div class="columns">
+
+			<div class="column col-md-12 col-4">
+				<h1 class="mt-2">Nafee</h1>
+				<!-- <p>
+					Analyze your wheelchair data here.
+				</p> -->
 			</div>
-			<div class="card-body">
-				<div class="empty d-none" id="emptyChart">
-					<div class="empty-icon">
-						<i class="icon icon-4x icon-photo"></i>
+
+			<div class="column col-md-12 col-8">
+				<div class="card shadow-lg">
+					<div class="card-header">
+						<div class="card-title h5">Activity</div>
+						<div class="card-subtitle text-gray">Wheelchair Edition</div>
 					</div>
-					<p class="empty-title h5">Activity Not Found</p>
-					<p class="empty-subtitle">Click the button below or use the app to upload your first set of data.</p>
-				</div>
+					<div class="card-body">
+						<div class="empty d-none" id="proxyChart">
+							<div class="loading loading-lg"></div>
+							<p class="empty-title h5">Loading Activity Data</p>
+							<p class="empty-subtitle">Click the button below or use the mobile app to upload data.</p>
+						</div>
 
-				<ul id="moveData"></ul>
+						<!-- <ul id="moveData"></ul> -->
 
-				<!-- can conditionally display or not by toggling `.display-none` -->
-				<canvas id="myChart" class=""></canvas>
-			</div>
-			<div class="card-footer">
-				<div class="upload-btn-wrapper">
-					<button class="btn">Upload Data</button>
-					<input type="file" id="input" accept=".csv" name="myfile" />
+						<!-- can conditionally display or not by toggling `.display-none` -->
+						<canvas id="realChart" class="d-none" height="100px"></canvas>
+					</div>
+					<div class="card-footer">
+						<div class="upload-btn-wrapper c-hand">
+							<button class="btn">Upload Data</button>
+							<input type="file" id="input" accept=".csv" name="myfile" />
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
+		</div> <!-- columns -->
 	</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+	<div class="credits">
+		<p>a Kazi Nafee production</p>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js" defer></script>
 	<script src="https://fastcdn.org/Papa-Parse/4.1.2/papaparse.min.js" defer></script>
-	<script type="module" src="src/js/main.js"></script>
+	<script type="module" src="src/js/main.js" defer></script>
 </body>
 
 </html>

@@ -3,14 +3,13 @@ export default class ActivityTable
 	constructor(activities)
 	{
 		this._activities = activities;
-		//this._totalActiveDuration +=
-		/* activities.forEach(activity => {
-			console.log(activity);
-		}); */
-		//this._totalStationaryDuration +=
-		/* activities.forEach(activity => {
-            if(activity.isMoving) console.log(activity);
-        }); */
+		this._totalActiveDuration = 0;
+		this._totalStationaryDuration = 0;
+		
+		activities.forEach(activity => {
+				if(activity.isMoving) this._totalActiveDuration += activity.endTime - activity.startTime;
+				else this._totalStationaryDuration += activity.endTime - activity.startTime;
+		}); 
 	}
 
 	get activities()

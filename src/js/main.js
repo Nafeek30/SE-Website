@@ -113,11 +113,30 @@ function handleFiles(theFiles) {
       //console.log('parsing complete read', results, 'records.');
       results.data.forEach(line => {
         let keys = Object.keys(line);
-        coordinateSets.push(new CoordinateSet(line[keys[0]], line[keys[1]], line[keys[2]], line[keys[3]]));
+        // TODO: Right here, convert the last CoordinateSet value to remove last three digits to convert
+        //  all coordinate sets to seconds. Then remove duplicates.
+        var timeStamp = line[keys[3]];
+        // remove milliseconds and convert to seconds
+        timeStamp = (timeStamp - (timeStamp % 1000)) / 1000;
+        coordinateSets.push(new CoordinateSet(line[keys[0]], line[keys[1]], line[keys[2]], timeStamp));
       });
 
       //console.log(coordinateSets);
       activityTable = coordAnalyzer.analyzeData(coordinateSets);
+
+      // console.log(activityTable);
+
+      /* remove duplicate times */
+      var table = activityTable._activities;
+      // I chose this method based on https://stackoverflow.com/a/18165553/6598861
+      for (let i = table.length; i--;) {
+        if (table[i].startTime === table[i].endTime) {
+            table.splice(i, 1);
+        }
+      }
+
+      chartLoader.loadRealChart(table);
+
       console.log(activityTable);
 
       // todo: test populating the graph

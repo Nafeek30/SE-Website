@@ -6,7 +6,14 @@ export default class RealChartLoader extends ChartLoader {
     console.log("This is a real chart");
   }
 
-  simulateLoad() {
+  loadRealChart(data) {
+    let newData = data.map((object, index) => ({
+       x: moment.unix(object.startTime).format('h:mm:ss a'),
+       y: (object.isMoving ? 1 : 0)
+     }));
+
+     console.log(newData);
+
     // display loading empty thing `#proxyChart`
     var proxyChart = document.getElementById('proxyChart');
     proxyChart.classList.add("d-none"); /* makes it visible */
@@ -15,19 +22,39 @@ export default class RealChartLoader extends ChartLoader {
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ["1:00 AM", "1:01 AM", "1:05 AM", "1:10 AM", "1:11 AM", "1:12 AM"],
         datasets: [{
-          label: '# of Votes',
+          label: 'Activity',
           steppedLine: 'true',
-          data: [1, 0, 1, 1, 0, 1],
+          data: newData,
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
           borderColor: 'rgba(255,99,132,1)',
           borderWidth: 1
         }]
       },
       options: {
+        elements: {
+          point:{
+              radius: 0
+          }
+        },
         scales: {
+          xAxes: [
+              {
+                type: 'time',
+                // position: 'bottom',
+                time: {
+                  parser: "HH:mm:ss a", //<- use 'parser'
+                  unit: 'minutes',
+                  unitStepSize: 1,
+                  displayFormats: {
+                     'minutes': 'hh:mm a',
+                  }
+                },
+              }
+            ],
           yAxes: [{
+            type: 'linear',
+            position: 'left',
             ticks: {
               max: 1,
               min: 0,
@@ -37,5 +64,38 @@ export default class RealChartLoader extends ChartLoader {
         }
       }
     });
+  }
+
+  simulateLoad() {
+    // display loading empty thing `#proxyChart`
+    var proxyChart = document.getElementById('proxyChart');
+    proxyChart.classList.add("d-none"); /* makes it visible */
+    var ctx = document.getElementById("realChart");
+    ctx.classList.remove('d-none');
+    // var myChart = new Chart(ctx, {
+    //   type: 'line',
+    //   data: {
+    //     labels: ["1:00 AM", "1:01 AM", "1:05 AM", "1:10 AM", "1:11 AM", "1:12 AM"],
+    //     datasets: [{
+    //       label: '# of Votes',
+    //       steppedLine: 'true',
+    //       data: [1, 0, 1, 1, 0, 1],
+    //       backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    //       borderColor: 'rgba(255,99,132,1)',
+    //       borderWidth: 1
+    //     }]
+    //   },
+    //   options: {
+    //     scales: {
+    //       yAxes: [{
+    //         ticks: {
+    //           max: 1,
+    //           min: 0,
+    //           stepSize: 1
+    //         }
+    //       }]
+    //     }
+    //   }
+    // });
   }
 }

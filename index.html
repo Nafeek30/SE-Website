@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Activity</title>
+	<title>Wheelchair</title>
 	<!-- Spectre CSS -->
 	<link rel="stylesheet" href="src/css/main.css">
 	<link rel="stylesheet" href="src/css/spectre.css">
@@ -38,15 +38,19 @@
 		<div class="columns">
 
 			<div class="column col-md-12 col-4">
-				<h1 class="mt-2">Wheel 3000</h1>
+				<h1 class="mt-2"><span class="icon-wheelchair-alt"></span> Nafee</h1>
+				<p id="totalSeconds" class="d-none">
+					Active: <span id="active_seconds"></span><br/>
+					Inactive: <span id="inactive_seconds"></span>
+				</p>
 			</div>
 
 			<div class="column col-md-12 col-8">
 				<div class="card shadow-lg">
-					<div class="card-header">
+					<!-- <div class="card-header">
 						<div class="card-title h5">
 							Activity
-							<div class="form-group float-right">
+							<div class="form-group float-right d-none">
 								<select class="form-select">
 									<option>Minutes</option>
 									<option>Hours</option>
@@ -54,25 +58,23 @@
 							</div>
 						</div>
 						<div class="card-subtitle text-gray">Wheelchair Edition</div>
-					</div>
+					</div> -->
 					<div class="card-body">
 
 						<!-- loading message -->
-						<div class="empty d-none" id="proxyChart">
-							<div class="loading loading-lg"></div>
-							<p class="empty-title h5">Loading Activity...</p>
-							<p class="empty-subtitle">Click the button below or use the mobile app to upload data.</p>
+						<div class="empty" id="proxyChart">
+							<!-- <div class="loading loading-lg"></div> -->
+							<div class="upload-btn-wrapper c-hand">
+								<button class="btn btn-action s-circle"><i id="btnUpload" class="icon icon-upload"></i></button>
+								<input type="file" id="input" accept=".csv" name="myfile" />
+							</div>
+							<p class="empty-title h5" id="ph-title">No Activity Data</p>
+							<p class="empty-subtitle" id="ph-subtitle">Click the button above or use the mobile app to upload data.</p>
 						</div>
 
 						<!-- can conditionally display or not by toggling `.display-none` -->
 						<!-- form select control -->
 						<canvas id="realChart" class="d-none" height="100px"></canvas>
-					</div>
-					<div class="card-footer">
-						<div class="upload-btn-wrapper c-hand">
-							<button class="btn">Upload Data</button>
-							<input type="file" id="input" accept=".csv" name="myfile" />
-						</div>
 					</div>
 				</div>
 			</div>
@@ -84,7 +86,7 @@
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js" defer></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js" defer></script>
+	<script src="https://npmcdn.com/chart.js@latest/dist/Chart.bundle.min.js" defer></script>
 	<script src="https://fastcdn.org/Papa-Parse/4.1.2/papaparse.min.js" defer></script>
 	<script type="module" src="src/js/main.js" defer></script>
 </body>

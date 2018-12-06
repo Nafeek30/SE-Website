@@ -5,11 +5,11 @@ export default class ActivityTable
 		this._activities = activities;
 		this._totalActiveDuration = 0;
 		this._totalStationaryDuration = 0;
-		
+
 		activities.forEach(activity => {
-				if(activity.isMoving) this._totalActiveDuration += activity.endTime - activity.startTime;
-				else this._totalStationaryDuration += activity.endTime - activity.startTime;
-		}); 
+				if (activity.isMoving) this._totalActiveDuration += (activity.endTime - activity.startTime);
+				else this._totalStationaryDuration += (activity.endTime - activity.startTime);
+		});
 	}
 
 	get activities()

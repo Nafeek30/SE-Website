@@ -4,22 +4,14 @@ import RealChartLoader from "./RealChartLoader.js";
 export default class ProxyChartLoader extends ChartLoader
 {
 
-  loadChart() {
+  loadChart(dataArray) {
     // instance of real chart
     const realChart = new RealChartLoader();
-    var realChartElmt = document.getElementById('realChart');
-    realChartElmt.classList.add("d-none"); /* makes it invisible */
+    let elemRealChart = document.getElementById('realChart');
+    let elemBtnUpload = document.getElementById('btnUpload');
+    elemRealChart.classList.add("d-none"); /* makes it invisible */
+    elemBtnUpload.classList = "loading";
 
-    // display loading empty thing `#proxyChart`
-    var proxyChart = document.getElementById('proxyChart');
-    proxyChart.classList.remove("d-none"); /* makes it visible */
-
-    realChart.loadChart();
-  }
-
-  loadRealChart(dataArray) {
-    // instance of real chart
-    const realChart = new RealChartLoader();
-    realChart.loadRealChart(dataArray);
+    setTimeout(realChart.loadChart, 1500, dataArray);
   }
 }

@@ -51,18 +51,18 @@ let activityTable = null;
 //console.log(activityTable);
 
 // load chart initially
-chartLoader.loadChart();
+// chartLoader.loadChart();
 
 // receive file upload
 document.getElementById('input').addEventListener('change', () => {
   let file = event.target.files;
-  console.log(file);
+  // console.log(file);
   handleFiles(file);
 });
 
 function handleFiles(theFiles) {
   let file = theFiles[0];
-  console.log(file.name);
+
   Papa.parse(file, {
     header: true,
     dynamicTyping: true,
@@ -75,9 +75,11 @@ function handleFiles(theFiles) {
         timeStamp = (timeStamp - (timeStamp % 1000)) / 1000; // milliseconds to seconds
         coordinateSets.push(new CoordinateSet(line[keys[0]], line[keys[1]], line[keys[2]], timeStamp));
       });
+
       activityTable = coordAnalyzer.analyzeData(coordinateSets);
 
       // remove duplicate times
+      console.log(activityTable);
       var data = activityTable._activities;
       // I chose this method based on https://stackoverflow.com/a/18165553/6598861
       for (let i = data.length; i--;) {
@@ -86,7 +88,13 @@ function handleFiles(theFiles) {
         }
       }
 
-      chartLoader.loadRealChart(data);
+      let elemActiveSec = document.getElementById('active_seconds');
+      let elemInactiveSec = document.getElementById('inactive_seconds');
+      let elemTotalSec = document.getElementById('totalSeconds');
+      elemActiveSec.innerHTML = `${activityTable._totalActiveDuration} seconds`;
+      elemInactiveSec.innerHTML = `${activityTable._totalStationaryDuration} seconds`;
+
+      chartLoader.loadChart(data);
     }
   });
 }

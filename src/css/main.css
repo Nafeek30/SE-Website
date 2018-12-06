@@ -7,8 +7,12 @@
   margin-top: 1rem;
 }
 
-.d-none {
-  display: none;
+.container {
+  transition: height 1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.card-body .empty {
+  padding: 2.2rem 1.6rem;
 }
 
 .upload-btn-wrapper {
@@ -56,4 +60,34 @@
   text-align: center;
   width: 100%;
   opacity: 0.5;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?vbp0zj');
+  src:  url('fonts/icomoon.eot?vbp0zj#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?vbp0zj') format('truetype'),
+    url('fonts/icomoon.woff?vbp0zj') format('woff'),
+    url('fonts/icomoon.svg?vbp0zj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wheelchair-alt:before {
+  content: "\e900";
 }

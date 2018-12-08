@@ -100,7 +100,9 @@ function parseFile(file)
 	Papa.parse(file, {
     	header: true,
     	dynamicTyping: true,
-    	complete: function(results) {		
+    	complete: function(results) {
+		//empty old data
+		coordinateSets.length = 0;		
       	// extract coordinates
       	results.data.forEach(line => {
         	let keys = Object.keys(line);

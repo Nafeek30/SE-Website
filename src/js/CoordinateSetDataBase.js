@@ -10,9 +10,7 @@ export default class CoordinateSetDataBase extends DataBase
 
 	uploadData(coordinateSets)
 	{
-		if(Array.isArray(coordinateSets) && coordinateSets.every(x =>
-			x instanceof CoordinateSet
-		))
+		if(Array.isArray(coordinateSets) && coordinateSets[0] instanceof CoordinateSet)
 			this._implementor.uploadData(coordinateSets);
 		else
 			throw new TypeError("Not a list of CoordinateSets.");

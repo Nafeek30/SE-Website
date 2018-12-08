@@ -27,7 +27,10 @@
 
 		  //get instance of firestore
 		  var db = firebase.firestore();
-
+			
+		  //get reference to firestorage
+		  var storage = firebase.storage().ref();  
+		
 		  //disable depreciated features
 		  db.settings({timestampsInSnapshots: true});
 		</script>

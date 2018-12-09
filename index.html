@@ -27,10 +27,10 @@
 
 		  //get instance of firestore
 		  var db = firebase.firestore();
-			
+
 		  //get reference to firestorage
-		  var storage = firebase.storage().ref();  
-		
+		  var storage = firebase.storage().ref();
+
 		  //disable depreciated features
 		  db.settings({timestampsInSnapshots: true});
 		</script>
@@ -50,38 +50,26 @@
 
 			<div class="column col-md-12 col-8">
 				<div class="card shadow-lg">
-					<!-- <div class="card-header">
-						<div class="card-title h5">
-							Activity
-							<div class="form-group float-right d-none">
-								<select class="form-select">
-									<option>Minutes</option>
-									<option>Hours</option>
-								</select>
-							</div>
-						</div>
-						<div class="card-subtitle text-gray">Wheelchair Edition</div>
-					</div> -->
 					<div class="card-body">
 
 						<!-- loading message -->
 						<div class="empty" id="proxyChart">
-							<!-- <div class="loading loading-lg"></div> -->
-							<div class="upload-btn-wrapper c-hand">
-								<button class="btn btn-action s-circle"><i id="btnUpload" class="icon icon-upload"></i></button>
-								<input type="file" id="input" accept=".csv" name="myfile" />
-							</div>
-							<p class="empty-title h5" id="ph-title">No Activity Data</p>
-							<p class="empty-subtitle" id="ph-subtitle">Click the button above or use the mobile app to upload data.</p>
+							<div class="loading loading-lg"></div>
+							<p class="empty-title h5" id="ph-title">Loading Activity Data</p>
+							<p class="empty-subtitle" id="ph-subtitle">Click the button below or use the mobile app to upload data.</p>
 						</div>
 
-						<!-- can conditionally display or not by toggling `.display-none` -->
-						<!-- form select control -->
 						<canvas id="realChart" class="d-none" height="100px"></canvas>
+
+						<!-- can conditionally display or not by toggling `.display-none` -->
 					</div>
 				</div>
 			</div>
 		</div> <!-- columns -->
+		<div class="upload-btn-wrapper c-hand mt-2">
+			<button class="btn btn-primary btn-action btn-xl s-circle"><i class="icon icon-upload"></i></button>
+			<input type="file" id="input" accept=".csv" name="myfile" />
+		</div>
 	</div>
 
 	<div class="credits">

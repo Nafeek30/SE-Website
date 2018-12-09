@@ -15,10 +15,23 @@
   padding: 2.2rem 1.6rem;
 }
 
+.btn.btn-xl {
+  height: 3rem !important;
+  width: 3rem !important;
+  transition: all .2s ease-in-out;
+}
+
+.btn.btn-xl:hover {
+  transition: scale(1.1);
+  filter: brightness(1.1);
+}
+
 .upload-btn-wrapper {
-  position: relative;
   overflow: hidden;
   display: inline-block;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
 }
 
 .upload-btn-wrapper input[type=file] {

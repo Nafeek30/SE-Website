@@ -37,7 +37,7 @@ csvQuery.then(querySnapshot => {
 	{
 		//get most recent csv from fire storage
 		let mostRecent = objs.reduce((a, b) => a.date > b.date ? a : b);
-		//console.log(mostRecent);
+		// console.log(mostRecent);
 		//download csv
 		const xhr = new XMLHttpRequest();
 		xhr.responseType = "blob";
@@ -60,7 +60,7 @@ testData.then(querySnapshot => {
 
  	//Analyze the data
  	activityTable = coordAnalyzer.analyzeData(coordinateSets);
- 	
+
 	var data = activityTable._activities;
     // I chose this method based on https://stackoverflow.com/a/18165553/6598861
     for (let i = data.length; i--;) {
@@ -87,7 +87,7 @@ document.getElementById('input').addEventListener('change', () => {
   handleFiles(file);
 });
 
-function handleFiles(theFiles) 
+function handleFiles(theFiles)
 {
 	let file = theFiles[0];
 	//upload csv to firestorage
@@ -102,7 +102,7 @@ function parseFile(file)
     	dynamicTyping: true,
     	complete: function(results) {
 		//empty old data
-		coordinateSets.length = 0;		
+		coordinateSets.length = 0;
       	// extract coordinates
       	results.data.forEach(line => {
         	let keys = Object.keys(line);
@@ -110,7 +110,7 @@ function parseFile(file)
         	timeStamp = (timeStamp - (timeStamp % 1000)) / 1000; // milliseconds to seconds
         	coordinateSets.push(new CoordinateSet(line[keys[0]], line[keys[1]], line[keys[2]], timeStamp));
       	});
-		
+
 	  	coordinateSets.pop();
 	  	//upload new data to firebase
 	  	//coordDb.uploadData(coordinateSets);
@@ -137,5 +137,3 @@ function parseFile(file)
     	}
   	});
 }
-
-

@@ -36,7 +36,7 @@ describe("ActivityTableSuite", () => {
 	const activities = [];
 	activities.push(activity1);
 	activities.push(activity2);
-	const activityTable = new ActivityTable(activity1);
+	const activityTable = new ActivityTable(activities);
 	
 	it("should have at least one activity", () => {
 		expect(activityTable.getTable().length).toBeGreaterThan(0);

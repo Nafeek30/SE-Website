@@ -2,7 +2,7 @@ import DataAnalyzerImplementor from "./DataAnalyzerImplementor.js";
 import CoordinateSet from "./CoordinateSet.js";
 import Activity from "./Activity.js";
 import ActivityTable from "./ActivityTable.js";
-``
+
 export default class JerkAnalyzerImplementor extends DataAnalyzerImplementor
 {
 	analyzeData(coordinateSets)
